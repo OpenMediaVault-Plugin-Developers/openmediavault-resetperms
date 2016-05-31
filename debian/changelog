@@ -1,0 +1,5 @@
+openmediavault-resetperms (3.0) stable; urgency=low
+
+  * Initial release
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 30 May 2016 22:51:49 -0500

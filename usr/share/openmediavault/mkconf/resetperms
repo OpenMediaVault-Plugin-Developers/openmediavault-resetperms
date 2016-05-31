@@ -1,0 +1,55 @@
+#!/bin/sh
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
+# @copyright Copyright (c) 2009-2013 Volker Theile
+# @copyright Copyright (c) 2013-2016 OpenMediaVault Plugin Developers
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+export LANG=C
+
+XPATH="/config/system/resetperms"
+sfref=$(omv_config_get "${XPATH}/sharedfolderref")
+sfpath=$(omv_get_sharedfolder_path "${sfref}")
+
+clearacl=$(omv_config_get "${XPATH}/clearacl")
+dirperms=$(omv_config_get "${XPATH}/dirperms")
+fileperms=$(omv_config_get "${XPATH}/fileperms")
+
+# Removes all ACLs and sticky bits
+if [ "${clearacl}" = "1" ]; then
+    echo "Clearing ACLs ..."
+    setfacl -Rb "${sfpath}"
+fi
+
+# Make root:users owner of the shared folder and all subdirs
+echo "Changing owner to root:users ..."
+chown -R root:users "${sfpath}"
+
+# For all folders that are inside that folder (recursively) and the folder itself
+echo "Change directory permissions to ${dirperms} ..."
+find "${sfpath}" -type d -exec chmod "${dirperms}" {} +
+
+# For all files that are inside that folder (recursively)
+echo "Change file permissions to ${fileperms} ..."
+find "${sfpath}" -type f -exec chmod "${fileperms}" {} +
+
+exit 0

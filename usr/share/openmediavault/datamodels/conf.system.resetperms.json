@@ -1,0 +1,37 @@
+{
+	"type": "config",
+	"id": "conf.system.resetperms",
+	"title": "ResetPerms",
+	"queryinfo": {
+		"xpath": "//system/resetperms",
+		"iterable": false
+	},
+	"properties": {
+		"sharedfolderref": {
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}]
+		},
+		"mode": {
+			"type": "string",
+			"default": "775"
+		},
+		"clearacl": {
+			"type": "boolean",
+			"default": false
+		},
+		"fileperms": {
+			"type": "string",
+			"default": ""
+		},
+		"dirperms": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}

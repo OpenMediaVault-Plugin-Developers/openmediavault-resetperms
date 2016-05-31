@@ -1,0 +1,17 @@
+Source: openmediavault-resetperms
+Section: net
+XB-Plugin-Section: utilities
+Priority: optional
+Maintainer: OpenMediaVault Plugin Developers <plugins@omv-extras.org>
+Build-Depends: debhelper (>= 9 )
+Standards-Version: 3.9.6
+Homepage: http://omv-extras.org/
+
+Package: openmediavault-resetperms
+Architecture: all
+Depends: openmediavault (>= 3.0.15),
+         ${misc:Depends}
+Description: Reset Permissions
+ Reset permissions of shared folder.
+ .
+ View plugins that are using each shared folder.
