@@ -69,13 +69,6 @@ class OMVRpcServiceResetPerms extends \OMV\Rpc\ServiceAbstract
         $params['dirperms'] = sprintf("2%s", $params['mode']);
         $object->setAssoc($params);
         $db->set($object);
-        // Notify configuration changes.
-        $dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-        $dispatcher->notify(
-            OMV_NOTIFY_MODIFY,
-            "org.openmediavault.system.resetperms",
-            $object->getAssoc()
-        );
         // Return the configuration object.
         return $object->getAssoc();
     }
