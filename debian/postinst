@@ -28,12 +28,12 @@ case "$1" in
         SERVICE_XPATH="/config/system/${SERVICE_XPATH_NAME}"
 
         if ! omv_config_exists "${SERVICE_XPATH}"; then
-            omv_config_add_element "/config/system" "${SERVICE_XPATH_NAME}"
-            omv_config_add_element "${SERVICE_XPATH}" "sharedfolderref" ""
-            omv_config_add_element "${SERVICE_XPATH}" "mode" "775"
-            omv_config_add_element "${SERVICE_XPATH}" "clearacl" "0"
-            omv_config_add_element "${SERVICE_XPATH}" "fileperms" "664"
-            omv_config_add_element "${SERVICE_XPATH}" "dirperms" "2775"
+            omv_config_add_node "/config/system" "${SERVICE_XPATH_NAME}"
+            omv_config_add_key "${SERVICE_XPATH}" "sharedfolderref" ""
+            omv_config_add_key "${SERVICE_XPATH}" "mode" "775"
+            omv_config_add_key "${SERVICE_XPATH}" "clearacl" "0"
+            omv_config_add_key "${SERVICE_XPATH}" "fileperms" "664"
+            omv_config_add_key "${SERVICE_XPATH}" "dirperms" "2775"
         fi
 
         dpkg-trigger update-fixperms
