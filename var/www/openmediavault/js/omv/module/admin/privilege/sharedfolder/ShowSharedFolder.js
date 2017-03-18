@@ -4,7 +4,7 @@
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
  * @copyright Copyright (c) 2009-2013 Volker Theile
- * @copyright Copyright (c) 2015=2016 OpenMediaVault Plugin Developers
+ * @copyright Copyright (c) 2015=2017 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -45,11 +45,13 @@ Ext.define("OMV.module.admin.privilege.resetperms.ShowSharedFolder", {
     stateful          : true,
     stateId           : "9119027b-b1c0-1c48-a4c1-7a8b4fb54d7b",
     columns           : [{
+        xtype     : "textcolumn",
         text      : _("Shared Folder"),
         sortable  : true,
         dataIndex : "name",
         stateId   : "name"
     },{
+        xtype     : "textcolumn",
         text      : _("In Use By"),
         sortable  : true,
         dataIndex : "inuse",
@@ -79,8 +81,7 @@ Ext.define("OMV.module.admin.privilege.resetperms.ShowSharedFolder", {
             })
         });
         me.callParent(arguments);
-    },
-
+    }
 });
 
 OMV.WorkspaceManager.registerPanel({

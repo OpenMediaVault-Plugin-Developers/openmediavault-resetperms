@@ -9,7 +9,7 @@ Homepage: http://omv-extras.org/
 
 Package: openmediavault-resetperms
 Architecture: all
-Depends: openmediavault (>= 3.0.40),
+Depends: openmediavault (>= 3.0.67),
          ${misc:Depends}
 Description: Reset Permissions
  Reset permissions of shared folder.
