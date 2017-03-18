@@ -120,7 +120,7 @@ class OMVRpcServiceResetPerms extends \OMV\Rpc\ServiceAbstract
             $output = [];
             $cmd = sprintf("omv-showsharedfolder %s", $objectv->get('name'));
             exec($cmd, $output);
-            $objectv->add('inuse', 'string', implode("<br />", $output));
+            $objectv->add('inuse', 'string', implode('<br/>', $output));
             $objectsAssoc[] = $objectv->getAssoc();
         }
         // Filter the result.

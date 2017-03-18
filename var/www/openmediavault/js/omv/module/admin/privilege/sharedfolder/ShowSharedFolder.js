@@ -51,12 +51,13 @@ Ext.define("OMV.module.admin.privilege.resetperms.ShowSharedFolder", {
         dataIndex : "name",
         stateId   : "name"
     },{
-        xtype     : "textcolumn",
+        xtype     : "templatecolumn",
         text      : _("In Use By"),
         sortable  : true,
         dataIndex : "inuse",
         stateId   : "inuse",
-        flex      : 1
+        flex      : 1,
+        tpl       : '<tpl for="inuse" between="&lt;br/&gt;">{.}</tpl>'
     }],
 
     initComponent : function() {
