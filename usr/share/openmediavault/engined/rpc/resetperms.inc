@@ -20,7 +20,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
- class OMVRpcServiceResetPerms extends \OMV\Rpc\ServiceAbstract
+class OMVRpcServiceResetPerms extends \OMV\Rpc\ServiceAbstract
 {
     public function getName()
     {
