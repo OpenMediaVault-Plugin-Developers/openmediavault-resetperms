@@ -1,3 +1,9 @@
+openmediavault-resetperms (5.0) stable; urgency=low
+
+  * Adapt to OMV 5 (Usul)
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sun, 30 Dec 2018 15:47:05 -0600
+
 openmediavault-resetperms (3.3) stable; urgency=low
 
   * Improve foreign content handling
