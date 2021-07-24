@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.resetperms.inuse"
+  text: _("Shared Folders in Use")
+  position: 20
+  icon: mdi:folder-information-outline
+  url: "/services/resetperms/inuse"

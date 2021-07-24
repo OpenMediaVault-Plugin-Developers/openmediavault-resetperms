@@ -1,9 +1,9 @@
 {
 	"type": "config",
-	"id": "conf.system.resetperms",
+	"id": "conf.service.resetperms",
 	"title": "ResetPerms",
 	"queryinfo": {
-		"xpath": "//system/resetperms",
+		"xpath": "//services/resetperms",
 		"iterable": false
 	},
 	"properties": {

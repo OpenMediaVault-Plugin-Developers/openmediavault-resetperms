@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.resetperms"
+  text: _("Reset Permissions")
+  icon: "mdi:lock-reset"
+  url: "/services/resetperms"

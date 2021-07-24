@@ -1,0 +1,24 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-resetperms-inuse-datatable-page
+  type: datatablePage
+  config:
+    autoReload: false
+    stateId: 50577768-ecb2-11eb-91ba-2ba30e44066b
+    sorters:
+      - dir: asc
+        prop: name
+    store:
+      proxy:
+        service: ResetPerms
+        get:
+          method: getSharedFolderInUseList
+    columns:
+      - name: _("Shared folder")
+        prop: name
+        flexGrow: 1
+        sortable: true
+      - name: _("In use by")
+        prop: inuse
+        flexGrow: 1

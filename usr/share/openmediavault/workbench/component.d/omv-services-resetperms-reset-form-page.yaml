@@ -1,0 +1,57 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-resetperms-reset-form-page
+  type: formPage
+  config:
+    request:
+      service: ResetPerms
+      get:
+        method: getSettings
+      post:
+        method: setSettings
+    fields:
+      - type: sharedFolderSelect
+        name: sharedfolderref
+        label: _("Shared folder")
+        hasEmptyOption: true
+      - type: select
+        name: mode
+        label: _("Permissions")
+        value: "775"
+        store:
+          data:
+            - - "700"
+              - _("Administrator - read/write, Users - no access, Others - no access")
+            - - "750"
+              - _("Administrator - read/write, Users - read-only, Others - no access")
+            - - "770"
+              - _("Administrator - read/write, Users - read/write, Others - no access")
+            - - "755"
+              - _("Administrator - read/write, Users - read-only, Others - read-only")
+            - - "775"
+              - _("Administrator - read/write, Users - read/write, Others - read-only")
+            - - "777"
+              - _("Everyone - read/write")
+      - type: checkbox
+        name: clearacl
+        label: _("Clear ACLs")
+        value: false
+        hint: _("Clear all ACLs.")
+    buttons:
+      - template: submit
+      - text: _('Reset Permissions')
+        icon: mdi:reset-lock
+        execute:
+          type: taskDialog
+          taskDialog:
+            config:
+              title: _("snapraid status ...")
+              startOnInit: true
+              request:
+                service: ResetPerms
+                method: doResetPerms
+              buttons:
+                stop:
+                  hidden: true
+            successUrl: /services/resetperms/reset

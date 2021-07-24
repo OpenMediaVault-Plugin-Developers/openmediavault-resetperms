@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
-# @author   OpenMediaVault Plugin Developers <plugins@omv-extras.org>
+# @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
 # @copyright Copyright (c) 2013-2021 OpenMediaVault Plugin Developers
 #
 # This program is free software: you can redistribute it and/or modify
@@ -19,21 +19,18 @@
 
 set -e
 
-. /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-case "$1" in
-    purge)
-        omv_config_delete "/config/serices/resetperms"
-    ;;
+SERVICE_XPATH_NAME="resetperms"
+SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
 
-    remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
-    ;;
-
-    *)
-        echo "postrm called with unknown argument \`$1'" >&2
-        exit 1
-    ;;
-esac
+if ! omv_config_exists "${SERVICE_XPATH}"; then
+  omv_config_add_node "/config/services" "${SERVICE_XPATH_NAME}"
+  omv_config_add_key "${SERVICE_XPATH}" "sharedfolderref" ""
+  omv_config_add_key "${SERVICE_XPATH}" "mode" "775"
+  omv_config_add_key "${SERVICE_XPATH}" "clearacl" "0"
+  omv_config_add_key "${SERVICE_XPATH}" "fileperms" "664"
+  omv_config_add_key "${SERVICE_XPATH}" "dirperms" "2775"
+fi
 
 exit 0

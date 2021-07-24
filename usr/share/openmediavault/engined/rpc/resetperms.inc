@@ -4,7 +4,7 @@
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
  * @copyright Copyright (c) 2009-2013 Volker Theile
- * @copyright Copyright (c) 2013-2019 OpenMediaVault Plugin Developers
+ * @copyright Copyright (c) 2013-2021 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -42,7 +42,7 @@ class OMVRpcServiceResetPerms extends \OMV\Rpc\ServiceAbstract
         $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         // Get the configuration object.
         $db = \OMV\Config\Database::getInstance();
-        $object = $db->get("conf.system.resetperms");
+        $object = $db->get("conf.service.resetperms");
         return $object->getAssoc();
     }
 
@@ -54,7 +54,7 @@ class OMVRpcServiceResetPerms extends \OMV\Rpc\ServiceAbstract
         $this->validateMethodParams($params, "rpc.resetperms.setsettings");
         // Get the existing configuration object.
         $db = \OMV\Config\Database::getInstance();
-        $object = $db->get("conf.system.resetperms");
+        $object = $db->get("conf.service.resetperms");
         switch ($params['mode']) {
             case "700": $params['fileperms'] = "600"; break;
             case "750": $params['fileperms'] = "640"; break;
@@ -77,10 +77,10 @@ class OMVRpcServiceResetPerms extends \OMV\Rpc\ServiceAbstract
         $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         // Get the configuration object.
         $db = \OMV\Config\Database::getInstance();
-        $object = $db->get("conf.system.resetperms");
+        $object = $db->get("conf.service.resetperms");
         // Check if shared folder is set to none
-        if (is_null($object->get('sharedfolderref'))) {
-            throw new \OMV\Exception(gettext("Please select a shared folder."));
+        if (!is_uuid($object->get('sharedfolderref'))) {
+            throw new \OMV\Exception(gettext("Please select a shared folder and/or click save."));
         }
         // Create a background process.
         $bgStatusFilename = $this->createBgProcStatus();
