@@ -29,7 +29,7 @@ remove_action() {
 case "$1" in
     purge)
         remove_action
-        omv_config_delete "/config/serices/resetperms"
+        omv_config_delete "/config/services/resetperms"
     ;;
 
     remove)
