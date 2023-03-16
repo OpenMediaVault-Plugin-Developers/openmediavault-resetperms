@@ -46,7 +46,7 @@ data:
           type: taskDialog
           taskDialog:
             config:
-              title: _("snapraid status ...")
+              title: _("Reset permissions ...")
               startOnInit: true
               request:
                 service: ResetPerms
