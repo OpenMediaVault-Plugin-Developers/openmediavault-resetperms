@@ -1,3 +1,9 @@
+openmediavault-resetperms (7.0) stable; urgency=low
+
+  * Update for OMV 7.x
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sun, 29 Oct 2023 10:28:52 -0500
+
 openmediavault-resetperms (6.0.3) stable; urgency=low
 
   * Fix label
