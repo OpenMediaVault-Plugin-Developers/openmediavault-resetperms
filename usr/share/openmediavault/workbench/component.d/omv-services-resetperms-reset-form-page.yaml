@@ -42,6 +42,7 @@ data:
       - template: submit
       - text: _('Reset Permissions')
         icon: mdi:reset-lock
+        submit: true
         execute:
           type: taskDialog
           taskDialog:
