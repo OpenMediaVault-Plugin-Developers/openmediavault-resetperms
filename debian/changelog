@@ -1,3 +1,9 @@
+openmediavault-resetperms (7.0.1) stable; urgency=low
+
+  * Submit the form before reset
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 26 Feb 2024 18:53:05 -0600
+
 openmediavault-resetperms (7.0) stable; urgency=low
 
   * Update for OMV 7.x
