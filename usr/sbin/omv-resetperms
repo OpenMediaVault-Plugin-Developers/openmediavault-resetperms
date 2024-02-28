@@ -54,4 +54,7 @@ find "${sfpath}" -type d -exec chmod "${dirperms}" {} +
 echo "Change file permissions to ${fileperms} ..."
 find "${sfpath}" -type f -exec chmod "${fileperms}" {} +
 
+echo "Reset sharedfolder in database to 'None' ..."
+omv_config_update "${XPATH}/sharedfolderref" ""
+
 exit 0

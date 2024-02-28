@@ -55,4 +55,4 @@ data:
               buttons:
                 stop:
                   hidden: true
-            successUrl: /services/resetperms/reset
+            successUrl: /services/resetperms
