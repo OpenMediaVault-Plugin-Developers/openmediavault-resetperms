@@ -1,3 +1,9 @@
+openmediavault-resetperms (7.0.2) stable; urgency=low
+
+  * Change sharedfolder to none after resetting permissions
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Tue, 27 Feb 2024 18:39:05 -0600
+
 openmediavault-resetperms (7.0.1) stable; urgency=low
 
   * Submit the form before reset
