@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-resetperms package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Kevin Leclercq <nuklearstriker@gmail.com>, 2024
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-26 18:54-0600\n"
 "PO-Revision-Date: 2024-02-27 00:56+0000\n"
+"Last-Translator: Kevin Leclercq <nuklearstriker@gmail.com>, 2024\n"
 "Language-Team: French (https://app.transifex.com/openmediavault-plugin-developers/teams/1854/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,51 +23,61 @@ msgstr ""
 
 msgid "Administrator - read/write, Users - no access, Others - no access"
 msgstr ""
+"Administrateur - lecture/écriture, Utilisateurs - aucun accès, Autres - "
+"aucun accès "
 
 msgid "Administrator - read/write, Users - read-only, Others - no access"
 msgstr ""
+"Administrateur - lecture/écriture, Utilisateurs - lecture seule, Autres - "
+"aucun accès "
 
 msgid "Administrator - read/write, Users - read-only, Others - read-only"
 msgstr ""
+"Administrateur - lecture/écriture, Utilisateurs - lecture seule, Autres - "
+"lecture seule "
 
 msgid "Administrator - read/write, Users - read/write, Others - no access"
 msgstr ""
+"Administrateur - lecture/écriture, Utilisateurs - lecture/écriture, Autres -"
+" aucun accès "
 
 msgid "Administrator - read/write, Users - read/write, Others - read-only"
 msgstr ""
+"Administrateur - lecture/écriture, Utilisateurs - lecture/écriture, Autres -"
+" lecture seule"
 
 msgid "Clear ACLs"
-msgstr ""
+msgstr "Effacer les ACLs"
 
 msgid "Clear all ACLs."
-msgstr ""
+msgstr "Effacer toutes les ACLs."
 
 msgid "Everyone - read/write"
-msgstr ""
+msgstr "Tout le monde - lecture/écriture "
 
 msgid "In use by"
-msgstr ""
+msgstr "Utilisé par "
 
 msgid "Permissions"
-msgstr ""
+msgstr "Permissions"
 
 msgid "Please select a shared folder and/or click save."
-msgstr ""
+msgstr "Sélectionnez un répertoire partagé et/ou cliquez sur sauvegarde."
 
 msgid "Reset Permissions"
-msgstr ""
+msgstr "Réinitialisation des permissions "
 
 msgid "Reset permissions ..."
-msgstr ""
+msgstr "Réinitialisation des permissions..."
 
 msgid "Reset perms"
-msgstr ""
+msgstr "Réinitialisation des permissions "
 
 msgid "Shared Folder in Use"
-msgstr ""
+msgstr "Répertoire partagé en cours d'utilisation "
 
 msgid "Shared Folders in Use"
-msgstr ""
+msgstr "Répertoire partagé en cours d'utilisation"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Répertoire partagé"
