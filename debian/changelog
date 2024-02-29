@@ -1,3 +1,9 @@
+openmediavault-resetperms (7.1) UNRELEASED; urgency=medium
+
+  * Move reset into sharedfolderin use datatable
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Wed, 28 Feb 2024 18:28:54 -0600
+
 openmediavault-resetperms (7.0.2) stable; urgency=low
 
   * Change sharedfolder to none after resetting permissions
