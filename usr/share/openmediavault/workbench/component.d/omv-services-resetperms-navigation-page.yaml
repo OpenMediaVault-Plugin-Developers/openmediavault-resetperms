@@ -1,5 +1,0 @@
-version: "1.0"
-type: component
-data:
-  name: omv-services-resetperms-navigation-page
-  type: navigationPage

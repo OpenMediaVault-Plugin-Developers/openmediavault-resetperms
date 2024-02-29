@@ -1,7 +1,0 @@
-version: "1.0"
-type: route
-data:
-  url: "/services/resetperms/reset"
-  title: _("Reset Permissions")
-  editing: true
-  component: omv-services-resetperms-reset-form-page
