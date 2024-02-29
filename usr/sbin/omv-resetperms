@@ -4,7 +4,7 @@
 # @author    Volker Theile <volker.theile@openmediavault.org>
 # @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
 # @copyright Copyright (c) 2009-2013 Volker Theile
-# @copyright Copyright (c) 2013-2022 OpenMediaVault Plugin Developers
+# @copyright Copyright (c) 2013-2024 OpenMediaVault Plugin Developers
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,7 +19,21 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-set -e
+if [ $# -ne 3 ]; then
+  echo "Wrong number of arguments passed."
+  echo "${0} [path] [dirperms] [clearacls]"
+  exit 1
+fi
+
+# logging location
+logDir="/var/log/"
+logFile="${logDir}/omv-resetperms.log"
+
+_log()
+{
+  msg=${1}
+  echo "[$(date +'%Y-%m-%d %H:%M:%S%z')] [resetperms] ${msg}" | tee -a ${logFile} >&2
+}
 
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
@@ -28,33 +42,48 @@ export LANG=C
 
 usergrp=${OMV_USERMGMT_DEFAULT_GROUP:-"users"}
 
-XPATH="/config/services/resetperms"
-sfref=$(omv_config_get "${XPATH}/sharedfolderref")
-sfpath=$(omv_get_sharedfolder_path "${sfref}")
+path="${1}"
+dirperms="${2}"
+clearacl="${3}"
 
-clearacl=$(omv_config_get "${XPATH}/clearacl")
-dirperms=$(omv_config_get "${XPATH}/dirperms")
-fileperms=$(omv_config_get "${XPATH}/fileperms")
+case ${dirperms} in
+  "700") fileperms="600";;
+  "750") fileperms="640";;
+  "770") fileperms="660";;
+  "755") fileperms="644";;
+  "775") fileperms="664";;
+  "777") fileperms="666";;
+  *)     fileperms="644";;
+esac
+
+_log "path :: ${path}"
+_log "dir perms :: ${dirperms}"
+_log "fil eperms :: ${fileperms}"
+_log "clear acls :: ${clearacl}"
+_log "user group :: ${usergrp}"
 
 # Removes all ACLs and sticky bits
 if [ "${clearacl}" = "1" ]; then
-    echo "Clearing ACLs ..."
-    setfacl -Rb "${sfpath}"
+  _log "Clearing ACLs ..."
+  setfacl -Rb "${path}"
+  _log "ACLs cleared."
 fi
 
 # Make root:users owner of the shared folder and all subdirs
-echo "Changing owner to root:users ..."
-chown -R root:${usergrp} "${sfpath}"
+_log "Changing owner to root:users ..."
+chown -R root:${usergrp} "${path}"
+_log "Ownership reset."
 
 # For all folders that are inside that folder (recursively) and the folder itself
-echo "Change directory permissions to ${dirperms} ..."
-find "${sfpath}" -type d -exec chmod "${dirperms}" {} +
+_log "Change directory permissions to ${dirperms} ..."
+find "${path}" -type d -exec chmod "${dirperms}" {} +
+_log "Directory permissions reset."
 
 # For all files that are inside that folder (recursively)
-echo "Change file permissions to ${fileperms} ..."
-find "${sfpath}" -type f -exec chmod "${fileperms}" {} +
+_log "Change file permissions to ${fileperms} ..."
+find "${path}" -type f -exec chmod "${fileperms}" {} +
+_log "File permissions reset."
 
-echo "Reset sharedfolder in database to 'None' ..."
-omv_config_update "${XPATH}/sharedfolderref" ""
+_log "Reset complete."
 
 exit 0

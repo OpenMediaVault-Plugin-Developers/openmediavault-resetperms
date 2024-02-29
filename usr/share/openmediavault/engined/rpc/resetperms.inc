@@ -29,80 +29,21 @@ class OMVRpcServiceResetPerms extends \OMV\Rpc\ServiceAbstract
 
     public function initialize()
     {
-        $this->registerMethod("getSettings");
-        $this->registerMethod("setSettings");
         $this->registerMethod("doResetPerms");
-
         $this->registerMethod("getSharedFolderInUseList");
-    }
-
-    public function getSettings($params, $context)
-    {
-        // Validate the RPC caller context.
-        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
-        // Get the configuration object.
-        $db = \OMV\Config\Database::getInstance();
-        $object = $db->get("conf.service.resetperms");
-        return $object->getAssoc();
-    }
-
-    public function setSettings($params, $context)
-    {
-        // Validate the RPC caller context.
-        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
-        // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, "rpc.resetperms.setsettings");
-        // Get the existing configuration object.
-        $db = \OMV\Config\Database::getInstance();
-        $object = $db->get("conf.service.resetperms");
-        switch ($params['mode']) {
-            case "700": $params['fileperms'] = "600"; break;
-            case "750": $params['fileperms'] = "640"; break;
-            case "770": $params['fileperms'] = "660"; break;
-            case "755": $params['fileperms'] = "644"; break;
-            case "775": $params['fileperms'] = "664"; break;
-            case "777": $params['fileperms'] = "666"; break;
-            default:    $params['fileperms'] = "644";
-        }
-        $params['dirperms'] = sprintf("2%s", $params['mode']);
-        $object->setAssoc($params);
-        $db->set($object);
-        // Return the configuration object.
-        return $object->getAssoc();
     }
 
     public function doResetPerms($params, $context)
     {
         // Validate the RPC caller context.
         $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
-        // Get the configuration object.
-        $db = \OMV\Config\Database::getInstance();
-        $object = $db->get("conf.service.resetperms");
-        // Check if shared folder is set to none
-        if (!is_uuid($object->get('sharedfolderref'))) {
-            throw new \OMV\Exception(gettext("Please select a shared folder and/or click save."));
-        }
-        // Create a background process.
-        $bgStatusFilename = $this->createBgProcStatus();
-        $pid = $this->fork();
-        if ($pid > 0) { // Parent process.
-            $this->initializeBgProcStatus($bgStatusFilename, $pid);
-            return $bgStatusFilename;
-        }
-        // Child process.
-        try {
-            $bgOutputFilename = $this->createBgProcOutput();
-            $this->updateBgProcStatus($bgStatusFilename, 'outputfilename', $bgOutputFilename);
-            // Execute command.
-            $cmd = '/usr/sbin/omv-resetperms 2>&1';
-            $this->exec($cmd, $output, $bgOutputFilename);
-            // Finalize the background process.
-            $this->finalizeBgProcStatus($bgStatusFilename, $output);
-            exit(0);
-        } catch(\Exception $e) {
-            $this->finalizeBgProcStatus($bgStatusFilename, '', $e);
-            exit(1);
-        }
+        $cmdArgs = [];
+        $cmdArgs[] = 'omv-resetperms';
+        $cmdArgs[] = sprintf('"%s"', $params['path']);
+        $cmdArgs[] = $params['mode'];
+        $cmdArgs[] = $params['clearacl'];
+        $cmd = new \OMV\System\Process($cmdArgs);
+        $cmd->execute($output, $exitStatus);
     }
 
     public function getSharedFolderInUseList($params, $context)
@@ -117,6 +58,10 @@ class OMVRpcServiceResetPerms extends \OMV\Rpc\ServiceAbstract
         // Add additional informations.
         $objectsAssoc = [];
         foreach ($objects as $objectk => &$objectv) {
+            $sfref = $objectv->get("uuid");
+            $sfpath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", ["uuid" => $sfref], $context);
+            $sfpath = rtrim($sfpath, '/');
+            $objectv->add('path', 'string', $sfpath);
             $output = [];
             $cmd = sprintf("omv-showsharedfolder %s", $objectv->get('name'));
             exec($cmd, $output);

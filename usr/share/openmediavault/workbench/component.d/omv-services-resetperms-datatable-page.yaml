@@ -1,11 +1,12 @@
 version: "1.0"
 type: component
 data:
-  name: omv-services-resetperms-inuse-datatable-page
+  name: omv-services-resetperms-datatable-page
   type: datatablePage
   config:
     autoReload: false
-    stateId: 50577768-ecb2-11eb-91ba-2ba30e44066b
+    hasSearchField: true
+    stateId: d569af0e-d691-11ee-a736-77cad9b7ca4b
     sorters:
       - dir: asc
         prop: name
@@ -22,3 +23,60 @@ data:
       - name: _("In use by")
         prop: inuse
         flexGrow: 1
+      - name: _("Path")
+        prop: path
+        flexGrow: 2
+        sortable: true
+    actions:
+      - type: iconButton
+        icon: mdi:lock-reset
+        tooltip: _("Reset permissions")
+        execute:
+          type: formDialog
+          formDialog:
+            title: _("Reset permissions ...")
+            fields:
+              - type: textInput
+                name: name
+                label: _('Shared folder')
+                value: '{{ _selected[0].name }}'
+                readonly: true
+                submitValue: false
+              - type: textInput
+                name: path
+                label: _('Path')
+                value: '{{ _selected[0].path }}'
+                readonly: true
+              - type: select
+                name: mode
+                label: _("Permissions")
+                value: "775"
+                store:
+                  data:
+                    - - "700"
+                      - _("Administrator - read/write, Users - no access, Others - no access")
+                    - - "750"
+                      - _("Administrator - read/write, Users - read-only, Others - no access")
+                    - - "770"
+                      - _("Administrator - read/write, Users - read/write, Others - no access")
+                    - - "755"
+                      - _("Administrator - read/write, Users - read-only, Others - read-only")
+                    - - "775"
+                      - _("Administrator - read/write, Users - read/write, Others - read-only")
+                    - - "777"
+                      - _("Everyone - read/write")
+              - type: checkbox
+                name: clearacl
+                label: _("Clear ACLs")
+                value: false
+                hint: _("Clear all ACLs.")
+            buttons:
+              submit:
+                text: _("Reset")
+                execute:
+                  type: request
+                  request:
+                    service: ResetPerms
+                    method: doResetPerms
+                    progressMessage: _("Resetting permissions ...")
+                    successNotification: _("Permissions have been reset.")

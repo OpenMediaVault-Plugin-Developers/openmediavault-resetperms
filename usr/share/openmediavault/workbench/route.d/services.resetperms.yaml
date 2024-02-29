@@ -3,4 +3,4 @@ type: route
 data:
   url: "/services/resetperms"
   title: _("Reset perms")
-  component: omv-services-resetperms-navigation-page
+  component: omv-services-resetperms-datatable-page
