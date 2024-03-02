@@ -15,6 +15,10 @@ data:
         service: ResetPerms
         get:
           method: getSharedFolderInUseList
+    hints:
+      - type: info
+        text: _("Lists sharedfolders in use.<br/>Reset permissions on selected sharedfolder.")
+        dismissible: true
     columns:
       - name: _("Shared folder")
         prop: name
