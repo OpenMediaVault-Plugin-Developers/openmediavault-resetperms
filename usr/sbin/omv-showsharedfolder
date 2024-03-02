@@ -49,7 +49,7 @@ for element in $elements; do
 done
 
 # Display unique results
-unique=$(echo "${show}" | tr ' ' '\n' | sort -u)
+unique=$(echo "${show}" | tr ' ' '\n' | sort -u | grep -v 'shares/sharedfolder' | sed 's/config\///' | sed 's/\//->/g')
 
 for output in $unique; do
   if [ -n "${output}" ]; then
