@@ -17,7 +17,7 @@ data:
           method: getSharedFolderInUseList
     hints:
       - type: info
-        text: _("Lists sharedfolders in use.<br/>Reset permissions on selected sharedfolder.")
+        text: _("Lists sharedfolders in use.<br/>Click Reset button to reset permissions on selected sharedfolder.")
         dismissible: true
     columns:
       - name: _("Shared folder")
@@ -54,7 +54,7 @@ data:
               - type: select
                 name: mode
                 label: _("Permissions")
-                value: "775"
+                value: ""
                 store:
                   data:
                     - - "700"
