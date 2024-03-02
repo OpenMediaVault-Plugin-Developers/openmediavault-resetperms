@@ -31,6 +31,7 @@ data:
         prop: path
         flexGrow: 2
         sortable: true
+        cellTemplateName: copyToClipboard
     actions:
       - type: iconButton
         icon: mdi:lock-reset
