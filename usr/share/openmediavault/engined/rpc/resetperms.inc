@@ -41,7 +41,7 @@ class OMVRpcServiceResetPerms extends \OMV\Rpc\ServiceAbstract
         $cmdArgs[] = 'omv-resetperms';
         $cmdArgs[] = sprintf('"%s"', $params['path']);
         $cmdArgs[] = $params['mode'];
-        $cmdArgs[] = $params['clearacl'];
+        $cmdArgs[] = intval($params['clearacl']);
         $cmd = new \OMV\System\Process($cmdArgs);
         $cmd->execute($output, $exitStatus);
     }
