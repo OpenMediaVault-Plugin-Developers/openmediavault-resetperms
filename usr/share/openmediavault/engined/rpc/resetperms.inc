@@ -31,6 +31,7 @@ class OMVRpcServiceResetPerms extends \OMV\Rpc\ServiceAbstract
     {
         $this->registerMethod("doResetPerms");
         $this->registerMethod("getSharedFolderInUseList");
+        $this->registerMethod("getListBg");
     }
 
     public function doResetPerms($params, $context)
@@ -66,10 +67,23 @@ class OMVRpcServiceResetPerms extends \OMV\Rpc\ServiceAbstract
             $cmd = sprintf("omv-showsharedfolder %s", $objectv->get('name'));
             exec($cmd, $output);
             $objectv->add('inuse', 'string', implode('<br/>', $output));
+            if (is_dir($sfpath)) {
+                $owner = posix_getpwuid(fileowner($sfpath));
+                $group = posix_getgrgid(filegroup($sfpath));
+                $perms = substr(sprintf('%o', fileperms($sfpath)), -4);
+                $curperms = sprintf('%s:%s %s', $owner['name'], $group['name'], $perms);
+            } else {
+                $curperms = 'n/a';
+            }
+            $objectv->add('curperms', 'string', $curperms);
             $objectsAssoc[] = $objectv->getAssoc();
         }
         // Filter the result.
         return $this->applyFilter($objectsAssoc, $params['start'], $params['limit'],
             $params['sortfield'], $params['sortdir']);
+    }
+
+    public function getListBg($params, $context) {
+        return $this->callMethodBg("getSharedFolderInUseList", $params, $context);
     }
 }

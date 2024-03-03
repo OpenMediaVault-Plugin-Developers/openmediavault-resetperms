@@ -14,7 +14,8 @@ data:
       proxy:
         service: ResetPerms
         get:
-          method: getSharedFolderInUseList
+          method: getListBg
+          task: true
     hints:
       - type: info
         text: _("Lists sharedfolders in use.<br/>Click Reset button to reset permissions on selected sharedfolder.")
@@ -32,6 +33,10 @@ data:
         flexGrow: 2
         sortable: true
         cellTemplateName: copyToClipboard
+      - name: _("Current Perms")
+        prop: curperms
+        flexGrow: 1
+        sortable: true
     actions:
       - type: iconButton
         icon: mdi:lock-reset

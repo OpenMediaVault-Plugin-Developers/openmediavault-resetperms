@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-resetperms\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-02 09:01-0600\n"
+"POT-Creation-Date: 2024-03-03 10:15-0600\n"
 "PO-Revision-Date: 2024-02-27 00:56+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>, 2024\n"
 "Language-Team: English (United Kingdom) (https://app.transifex.com/openmediavault-plugin-developers/teams/1854/en_GB/)\n"
@@ -41,6 +41,12 @@ msgstr "Clear ACLs"
 
 msgid "Clear all ACLs."
 msgstr "Clear all ACLs."
+
+msgid "Current Perms"
+msgstr ""
+
+msgid "Docs"
+msgstr ""
 
 msgid "Everyone - read/write"
 msgstr "Everyone - read/write"
@@ -95,3 +101,6 @@ msgstr "Shared Folders in Use"
 
 msgid "Shared folder"
 msgstr "Shared folder"
+
+msgid "omv-extras.org wiki"
+msgstr ""

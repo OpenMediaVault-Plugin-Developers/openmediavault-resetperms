@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-resetperms\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-02 09:01-0600\n"
+"POT-Creation-Date: 2024-03-03 10:15-0600\n"
 "PO-Revision-Date: 2024-02-27 00:56+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2024\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/openmediavault-plugin-developers/teams/1854/zh_TW/)\n"
@@ -41,6 +41,12 @@ msgstr "清除 ACLs"
 
 msgid "Clear all ACLs."
 msgstr "清除全部 ACLs。"
+
+msgid "Current Perms"
+msgstr ""
+
+msgid "Docs"
+msgstr ""
 
 msgid "Everyone - read/write"
 msgstr "任何用戶 - 讀/寫"
@@ -95,3 +101,6 @@ msgstr "使用中共享檔案夾"
 
 msgid "Shared folder"
 msgstr "共享檔案夾"
+
+msgid "omv-extras.org wiki"
+msgstr ""
