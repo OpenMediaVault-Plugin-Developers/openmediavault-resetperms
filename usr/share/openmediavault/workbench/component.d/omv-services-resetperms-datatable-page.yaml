@@ -75,6 +75,8 @@ data:
                       - _("Administrator - read/write, Users - read/write, Others - read-only")
                     - - "777"
                       - _("Everyone - read/write")
+                validators:
+                  required: true
               - type: checkbox
                 name: clearacl
                 label: _("Clear ACLs")
