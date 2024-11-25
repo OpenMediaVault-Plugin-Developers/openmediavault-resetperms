@@ -38,7 +38,7 @@ _log()
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-export LANG=C
+export LC_ALL=C
 
 usergrp=${OMV_USERMGMT_DEFAULT_GROUP:-"users"}
 
