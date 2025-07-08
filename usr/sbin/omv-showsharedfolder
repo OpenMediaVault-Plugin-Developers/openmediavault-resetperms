@@ -4,7 +4,7 @@
 
 OMV_CONFIG_FILE="/etc/openmediavault/config.xml"
 
-search=$1
+search="$1"
 
 # Check for empty search string
 if [ -z "${search}" ]; then
