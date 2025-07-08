@@ -64,7 +64,7 @@ class OMVRpcServiceResetPerms extends \OMV\Rpc\ServiceAbstract
             $sfpath = rtrim($sfpath, '/');
             $objectv->add('path', 'string', $sfpath);
             $output = [];
-            $cmd = sprintf("omv-showsharedfolder %s", $objectv->get('name'));
+            $cmd = sprintf('omv-showsharedfolder "%s"', $objectv->get('name'));
             exec($cmd, $output);
             $objectv->add('inuse', 'string', implode('<br/>', $output));
             if (is_dir($sfpath)) {
