@@ -1,3 +1,9 @@
+openmediavault-resetperms (7.1.1) stable; urgency=low
+
+  * quote shared folder path
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Fri, 18 Jul 2025 19:14:40 -0500
+
 openmediavault-resetperms (7.1) stable; urgency=low
 
   * Move reset into sharedfolderin use datatable
