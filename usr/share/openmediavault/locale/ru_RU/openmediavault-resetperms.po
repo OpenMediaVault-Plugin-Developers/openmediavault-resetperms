@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-resetperms package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Asdfgr Wertyu, 2024
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-03 10:15-0600\n"
 "PO-Revision-Date: 2024-02-27 00:56+0000\n"
+"Last-Translator: Asdfgr Wertyu, 2024\n"
 "Language-Team: Russian (https://app.transifex.com/openmediavault-plugin-developers/teams/1854/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,84 +23,98 @@ msgstr ""
 
 msgid "Administrator - read/write, Users - no access, Others - no access"
 msgstr ""
+"Администратор - чтение/запись, Пользователи - нет доступа, Другие - нет "
+"доступа"
 
 msgid "Administrator - read/write, Users - read-only, Others - no access"
 msgstr ""
+"Администратор - чтение/запись, Пользователи - только чтение, Другие - нет "
+"доступа"
 
 msgid "Administrator - read/write, Users - read-only, Others - read-only"
 msgstr ""
+"Администратор - чтение/запись, Пользователи - только чтение, Другие - только"
+" чтение"
 
 msgid "Administrator - read/write, Users - read/write, Others - no access"
 msgstr ""
+"Администратор - чтение/запись, Пользователи - чтение/запись, Другие - нет "
+"доступа"
 
 msgid "Administrator - read/write, Users - read/write, Others - read-only"
 msgstr ""
+"Администратор - чтение/запись, Пользователи - чтение/запись, Другие - только"
+" чтение"
 
 msgid "Clear ACLs"
-msgstr ""
+msgstr "Очистить ACL"
 
 msgid "Clear all ACLs."
-msgstr ""
+msgstr "Очистите все ACL."
 
 msgid "Current Perms"
-msgstr ""
+msgstr "Текущая завивка"
 
 msgid "Docs"
-msgstr ""
+msgstr "Документы"
 
 msgid "Everyone - read/write"
-msgstr ""
+msgstr "Все - чтение/запись"
 
 msgid "In use by"
-msgstr ""
+msgstr "Используется"
 
 msgid ""
 "Lists sharedfolders in use.<br/>Click Reset button to reset permissions on "
 "selected sharedfolder."
 msgstr ""
+"Список используемых общих папок. <br/>Нажмите кнопку Сброс, чтобы сбросить "
+"разрешения на выбранную общую папку."
 
 msgid ""
 "Lists sharedfolders in use.<br/>Reset permissions on selected sharedfolder."
 msgstr ""
+"Список используемых общих папок.<br/>Сброс разрешений на выбранную общую "
+"папку."
 
 msgid "Path"
-msgstr ""
+msgstr "Путь"
 
 msgid "Permissions"
-msgstr ""
+msgstr "Разрешения"
 
 msgid "Permissions have been reset."
-msgstr ""
+msgstr "Разрешения были сброшены."
 
 msgid "Please select a shared folder and/or click save."
-msgstr ""
+msgstr "Пожалуйста, выберите общую папку и/или нажмите кнопку сохранить."
 
 msgid "Reset"
-msgstr ""
+msgstr "Сброс"
 
 msgid "Reset Permissions"
-msgstr ""
+msgstr "Сброс Разрешений"
 
 msgid "Reset permissions"
-msgstr ""
+msgstr "Сброс разрешений"
 
 msgid "Reset permissions ..."
-msgstr ""
+msgstr "Сброс разрешений ..."
 
 msgid "Reset perms"
-msgstr ""
+msgstr "Сбросьте завивку"
 
 msgid "Resetting permissions ..."
-msgstr ""
+msgstr "Сброс разрешений ..."
 
 msgid "Shared Folder in Use"
-msgstr ""
+msgstr "Используемая общая папка"
 
 msgid "Shared Folders in Use"
-msgstr ""
+msgstr "Используемые общие папки"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Общая папка"
 
 msgid "omv-extras.org wiki"
-msgstr ""
+msgstr "omv-extras.org вики"

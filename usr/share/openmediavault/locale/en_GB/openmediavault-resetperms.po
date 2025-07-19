@@ -43,10 +43,10 @@ msgid "Clear all ACLs."
 msgstr "Clear all ACLs."
 
 msgid "Current Perms"
-msgstr ""
+msgstr "Current Perms"
 
 msgid "Docs"
-msgstr ""
+msgstr "Docs"
 
 msgid "Everyone - read/write"
 msgstr "Everyone - read/write"
@@ -58,31 +58,34 @@ msgid ""
 "Lists sharedfolders in use.<br/>Click Reset button to reset permissions on "
 "selected sharedfolder."
 msgstr ""
+"Lists sharedfolders in use.<br/>Click Reset button to reset permissions on "
+"selected sharedfolder."
 
 msgid ""
 "Lists sharedfolders in use.<br/>Reset permissions on selected sharedfolder."
 msgstr ""
+"Lists sharedfolders in use.<br/>Reset permissions on selected sharedfolder."
 
 msgid "Path"
-msgstr ""
+msgstr "Path"
 
 msgid "Permissions"
 msgstr "Permissions"
 
 msgid "Permissions have been reset."
-msgstr ""
+msgstr "Permissions have been reset."
 
 msgid "Please select a shared folder and/or click save."
 msgstr "Please select a shared folder and/or click save."
 
 msgid "Reset"
-msgstr ""
+msgstr "Reset"
 
 msgid "Reset Permissions"
 msgstr "Reset Permissions"
 
 msgid "Reset permissions"
-msgstr ""
+msgstr "Reset permissions"
 
 msgid "Reset permissions ..."
 msgstr "Reset permissions ..."
@@ -91,7 +94,7 @@ msgid "Reset perms"
 msgstr "Reset perms"
 
 msgid "Resetting permissions ..."
-msgstr ""
+msgstr "Resetting permissions ..."
 
 msgid "Shared Folder in Use"
 msgstr "Shared Folder in Use"
@@ -103,4 +106,4 @@ msgid "Shared folder"
 msgstr "Shared folder"
 
 msgid "omv-extras.org wiki"
-msgstr ""
+msgstr "omv-extras.org wiki"

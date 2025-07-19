@@ -43,10 +43,10 @@ msgid "Clear all ACLs."
 msgstr "清除全部 ACLs。"
 
 msgid "Current Perms"
-msgstr ""
+msgstr "目前權限"
 
 msgid "Docs"
-msgstr ""
+msgstr "說明文件"
 
 msgid "Everyone - read/write"
 msgstr "任何用戶 - 讀/寫"
@@ -57,32 +57,32 @@ msgstr "被何使用中"
 msgid ""
 "Lists sharedfolders in use.<br/>Click Reset button to reset permissions on "
 "selected sharedfolder."
-msgstr ""
+msgstr "列出使用中的共享檔案夾。<br/>點按 重置 按鈕來重置所選共享檔案夾的權限。"
 
 msgid ""
 "Lists sharedfolders in use.<br/>Reset permissions on selected sharedfolder."
-msgstr ""
+msgstr "列出使用中的共享檔案夾。<br/>重置所選共享檔案夾的權限。"
 
 msgid "Path"
-msgstr ""
+msgstr "路徑"
 
 msgid "Permissions"
 msgstr "權限"
 
 msgid "Permissions have been reset."
-msgstr ""
+msgstr "權限已被重置。"
 
 msgid "Please select a shared folder and/or click save."
 msgstr "請選擇一個共享檔案夾，並且/或者點按儲存。"
 
 msgid "Reset"
-msgstr ""
+msgstr "重置"
 
 msgid "Reset Permissions"
 msgstr "重置權限"
 
 msgid "Reset permissions"
-msgstr ""
+msgstr "重置權限"
 
 msgid "Reset permissions ..."
 msgstr "重置權限中 ..."
@@ -91,7 +91,7 @@ msgid "Reset perms"
 msgstr "重置權限"
 
 msgid "Resetting permissions ..."
-msgstr ""
+msgstr "重置權限中 ..."
 
 msgid "Shared Folder in Use"
 msgstr "使用中共享檔案夾"
@@ -103,4 +103,4 @@ msgid "Shared folder"
 msgstr "共享檔案夾"
 
 msgid "omv-extras.org wiki"
-msgstr ""
+msgstr "omv-extras.org wiki"
