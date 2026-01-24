@@ -26,62 +26,65 @@ if [ $# -ne 3 ]; then
 fi
 
 # logging location
-logDir="/var/log/"
+logDir="/var/log"
 logFile="${logDir}/omv-resetperms.log"
 
-_log()
-{
-  msg=${1}
-  echo "[$(date +'%Y-%m-%d %H:%M:%S%z')] [resetperms] ${msg}" | tee -a ${logFile} >&2
+_log() {
+  msg="${1}"
+  printf '[%s] [resetperms] %s\n' "$(date +'%Y-%m-%d %H:%M:%S%z')" "${msg}" | tee -a "${logFile}" >&2
 }
 
 . /etc/default/openmediavault
-. /usr/share/openmediavault/scripts/helper-functions
 
 export LC_ALL=C
 
-usergrp=${OMV_USERMGMT_DEFAULT_GROUP:-"users"}
+usergrp=${OMV_USERMGMT_DEFAULT_GROUP:-users}
 
 path="${1}"
 dirperms="${2}"
 clearacl="${3}"
 
-case ${dirperms} in
-  "700") fileperms="600";;
-  "750") fileperms="640";;
-  "770") fileperms="660";;
-  "755") fileperms="644";;
-  "775") fileperms="664";;
-  "777") fileperms="666";;
-  *)     fileperms="644";;
+if [ ! -d "${path}" ]; then
+  _log "ERROR: path is not a directory: ${path}"
+  exit 2
+fi
+
+case "${dirperms}" in
+  700) fileperms=600 ;;
+  750) fileperms=640 ;;
+  770) fileperms=660 ;;
+  755) fileperms=644 ;;
+  775) fileperms=664 ;;
+  777) fileperms=666 ;;
+  *)   fileperms=644 ;;
 esac
 
 _log "path :: ${path}"
 _log "dir perms :: ${dirperms}"
-_log "fil eperms :: ${fileperms}"
+_log "file perms :: ${fileperms}"
 _log "clear acls :: ${clearacl}"
 _log "user group :: ${usergrp}"
 
-# Removes all ACLs and sticky bits
+# Clear ACLs
 if [ "${clearacl}" = "1" ]; then
   _log "Clearing ACLs ..."
   setfacl -Rb "${path}"
   _log "ACLs cleared."
 fi
 
-# Make root:users owner of the shared folder and all subdirs
-_log "Changing owner to root:users ..."
-chown -R root:${usergrp} "${path}"
+# Ownership: only touch items not already root:usergrp
+_log "Changing owner to root:${usergrp} ..."
+find "${path}" \( ! -user root -o ! -group "${usergrp}" \) -exec chown root:"${usergrp}" {} +
 _log "Ownership reset."
 
-# For all folders that are inside that folder (recursively) and the folder itself
+# Directory perms: only touch directories whose mode differs (exact match)
 _log "Change directory permissions to ${dirperms} ..."
-find "${path}" -type d -exec chmod "${dirperms}" {} +
+find "${path}" -type d ! -perm "${dirperms}" -exec chmod "${dirperms}" {} +
 _log "Directory permissions reset."
 
-# For all files that are inside that folder (recursively)
+# File perms: only touch files whose mode differs (exact match)
 _log "Change file permissions to ${fileperms} ..."
-find "${path}" -type f -exec chmod "${fileperms}" {} +
+find "${path}" -type f ! -perm "${fileperms}" -exec chmod "${fileperms}" {} +
 _log "File permissions reset."
 
 _log "Reset complete."
