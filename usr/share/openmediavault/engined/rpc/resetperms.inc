@@ -45,6 +45,7 @@ class OMVRpcServiceResetPerms extends \OMV\Rpc\ServiceAbstract
         $cmdArgs[] = intval($params['clearacl']);
         $cmd = new \OMV\System\Process($cmdArgs);
         $cmd->execute($output, $exitStatus);
+        return ($output);
     }
 
     public function getSharedFolderInUseList($params, $context)
