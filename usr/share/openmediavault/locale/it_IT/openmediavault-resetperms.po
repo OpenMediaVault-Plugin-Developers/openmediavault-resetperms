@@ -3,13 +3,17 @@
 # This file is distributed under the same license as the openmediavault-resetperms package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Giovanni Scafora <scafora.giovanni@gmail.com>, 2026
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-resetperms\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-03 10:15-0600\n"
+"POT-Creation-Date: 2026-05-31 01:25+0000\n"
 "PO-Revision-Date: 2024-02-27 00:56+0000\n"
+"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2026\n"
 "Language-Team: Italian (https://app.transifex.com/openmediavault-plugin-developers/teams/1854/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,84 +23,83 @@ msgstr ""
 
 msgid "Administrator - read/write, Users - no access, Others - no access"
 msgstr ""
+"Amministratore - lettura/scrittura, Utenti - nessun accesso, Altri - nessun "
+"accesso"
 
 msgid "Administrator - read/write, Users - read-only, Others - no access"
 msgstr ""
+"Amministratore - lettura/scrittura, Utenti - sola lettura, Altri - nessun "
+"accesso"
 
 msgid "Administrator - read/write, Users - read-only, Others - read-only"
 msgstr ""
+"Amministratore - lettura/scrittura, Utenti - sola lettura, Altri - sola "
+"lettura"
 
 msgid "Administrator - read/write, Users - read/write, Others - no access"
 msgstr ""
+"Amministratore - lettura/scrittura, Utenti - lettura/scrittura, Altri - "
+"nessun accesso"
 
 msgid "Administrator - read/write, Users - read/write, Others - read-only"
 msgstr ""
+"Amministratore - lettura/scrittura, Utenti - lettura/scrittura, Altri - sola"
+" lettura"
 
 msgid "Clear ACLs"
-msgstr ""
+msgstr "Cancella ACL"
 
 msgid "Clear all ACLs."
-msgstr ""
+msgstr "Cancella tutte le ACL."
 
 msgid "Current Perms"
-msgstr ""
+msgstr "Permessi correnti"
 
 msgid "Docs"
-msgstr ""
+msgstr "Documentazione"
 
 msgid "Everyone - read/write"
-msgstr ""
+msgstr "Tutti - lettura/scrittura"
 
 msgid "In use by"
-msgstr ""
+msgstr "In uso da"
 
 msgid ""
 "Lists sharedfolders in use.<br/>Click Reset button to reset permissions on "
 "selected sharedfolder."
 msgstr ""
-
-msgid ""
-"Lists sharedfolders in use.<br/>Reset permissions on selected sharedfolder."
-msgstr ""
+"Elenca le cartelle condivise in uso.<br/>Fai clic sul pulsante Reimposta per"
+" reimpostare i permessi della cartella condivisa selezionata."
 
 msgid "Path"
-msgstr ""
+msgstr "Percorso"
 
 msgid "Permissions"
-msgstr ""
+msgstr "Permessi"
 
 msgid "Permissions have been reset."
-msgstr ""
-
-msgid "Please select a shared folder and/or click save."
-msgstr ""
+msgstr "I permessi sono stati ripristinati."
 
 msgid "Reset"
-msgstr ""
+msgstr "Ripristina"
 
 msgid "Reset Permissions"
-msgstr ""
+msgstr "Ripristina permessi"
 
 msgid "Reset permissions"
-msgstr ""
+msgstr "Ripristina permessi"
 
 msgid "Reset permissions ..."
-msgstr ""
+msgstr "Ripristino dei permessi..."
 
 msgid "Reset perms"
-msgstr ""
+msgstr "Ripristina permessi"
 
 msgid "Resetting permissions ..."
-msgstr ""
-
-msgid "Shared Folder in Use"
-msgstr ""
-
-msgid "Shared Folders in Use"
-msgstr ""
+msgstr "Ripristino dei permessi..."
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Cartella condivisa"
 
 msgid "omv-extras.org wiki"
-msgstr ""
+msgstr "Wiki di omv-extras.org"

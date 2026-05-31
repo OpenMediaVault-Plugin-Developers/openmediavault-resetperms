@@ -1,0 +1,98 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-resetperms package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# BoneNI, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-resetperms\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-31 01:25+0000\n"
+"PO-Revision-Date: 2024-02-27 00:56+0000\n"
+"Last-Translator: BoneNI, 2026\n"
+"Language-Team: Lao (Laos) (https://app.transifex.com/openmediavault-plugin-developers/teams/1854/lo_LA/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lo_LA\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Administrator - read/write, Users - no access, Others - no access"
+msgstr ""
+"ຜູ້ດູແລລະບົບ - ອ່ານ/ຂຽນ, ຜູ້ໃຊ້ - ບໍ່ມີສິດເຂົ້າເຖິງ, ອື່ນໆ - "
+"ບໍ່ມີສິດເຂົ້າເຖິງ"
+
+msgid "Administrator - read/write, Users - read-only, Others - no access"
+msgstr ""
+"ຜູ້ດູແລລະບົບ - ອ່ານ/ຂຽນ, ຜູ້ໃຊ້ - ອ່ານຢ່າງດຽວ, ອື່ນໆ - ບໍ່ມີສິດເຂົ້າເຖິງ"
+
+msgid "Administrator - read/write, Users - read-only, Others - read-only"
+msgstr "ຜູ້ດູແລລະບົບ - ອ່ານ/ຂຽນ, ຜູ້ໃຊ້ - ອ່ານຢ່າງດຽວ, ອື່ນໆ - ອ່ານຢ່າງດຽວ"
+
+msgid "Administrator - read/write, Users - read/write, Others - no access"
+msgstr "ຜູ້ດູແລລະບົບ - ອ່ານ/ຂຽນ, ຜູ້ໃຊ້ - ອ່ານ/ຂຽນ, ອື່ນໆ - ບໍ່ມີສິດເຂົ້າເຖິງ"
+
+msgid "Administrator - read/write, Users - read/write, Others - read-only"
+msgstr "ຜູ້ດູແລລະບົບ - ອ່ານ/ຂຽນ, ຜູ້ໃຊ້ - ອ່ານ/ຂຽນ, ອື່ນໆ - ອ່ານຢ່າງດຽວ"
+
+msgid "Clear ACLs"
+msgstr "ລຶບລ້າງ ACLs"
+
+msgid "Clear all ACLs."
+msgstr "ລຶບລ້າງ ACLs ທັງໝົດ."
+
+msgid "Current Perms"
+msgstr "ສິດປັດຈຸບັນ"
+
+msgid "Docs"
+msgstr "ເອກະສານ"
+
+msgid "Everyone - read/write"
+msgstr "ທຸກຄົນ - ອ່ານ/ຂຽນ"
+
+msgid "In use by"
+msgstr "ຖືກໃຊ້ໂດຍ"
+
+msgid ""
+"Lists sharedfolders in use.<br/>Click Reset button to reset permissions on "
+"selected sharedfolder."
+msgstr ""
+"ສະແດງລາຍຊື່ໂຟນເດີທີ່ໃຊ້ຮ່ວມກັນທີ່ພວມຖືກໃຊ້.<br/>ຄລິກປຸ່ມ ຣີເຊັດ "
+"ເພື່ອຕັ້ງຄ່າສິດໃນໂຟນເດີທີ່ເລືອກໃໝ່."
+
+msgid "Path"
+msgstr "ເສັ້ນທາງ"
+
+msgid "Permissions"
+msgstr "ສິດການເຂົ້າເຖິງ"
+
+msgid "Permissions have been reset."
+msgstr "ສິດການເຂົ້າເຖິງໄດ້ຖືກຕັ້ງຄ່າໃໝ່ແລ້ວ."
+
+msgid "Reset"
+msgstr "ຣີເຊັດ"
+
+msgid "Reset Permissions"
+msgstr "ຕັ້ງຄ່າສິດໃໝ່"
+
+msgid "Reset permissions"
+msgstr "ຕັ້ງຄ່າສິດໃໝ່"
+
+msgid "Reset permissions ..."
+msgstr "ກຳລັງຕັ້ງຄ່າສິດໃໝ່ ..."
+
+msgid "Reset perms"
+msgstr "ຣີເຊັດສິດ"
+
+msgid "Resetting permissions ..."
+msgstr "ກຳລັງຕັ້ງຄ່າສິດໃໝ່ ..."
+
+msgid "Shared folder"
+msgstr "ໂຟນເດີທີ່ໃຊ້ຮ່ວມກັນ"
+
+msgid "omv-extras.org wiki"
+msgstr "ວິກິ omv-extras.org"
