@@ -57,6 +57,11 @@ class OMVRpcServiceResetPerms extends \OMV\Rpc\ServiceAbstract
         // Get all configured shared folder configuration objects.
         $db = \OMV\Config\Database::getInstance();
         $objects = $db->get("conf.system.sharedfolder");
+        // Load the configuration file once and reuse it for every sharedfolder below
+        $configDoc = new \DOMDocument();
+        $configDoc->load(\OMV\Environment::get("OMV_CONFIG_FILE"),
+            LIBXML_NOBLANKS | LIBXML_NONET);
+        $configXpath = new \DOMXPath($configDoc);
         // Add additional informations.
         $objectsAssoc = [];
         foreach ($objects as $objectk => &$objectv) {
@@ -64,10 +69,8 @@ class OMVRpcServiceResetPerms extends \OMV\Rpc\ServiceAbstract
             $sfpath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", ["uuid" => $sfref], $context);
             $sfpath = rtrim($sfpath, '/');
             $objectv->add('path', 'string', $sfpath);
-            $output = [];
-            $cmd = sprintf('omv-showsharedfolder "%s"', $objectv->get('name'));
-            exec($cmd, $output);
-            $objectv->add('inuse', 'string', implode('<br/>', $output));
+            $objectv->add('inuse', 'string', implode('<br/>',
+                $this->getSharedFolderInUse($configXpath, $sfref)));
             if (is_dir($sfpath)) {
                 $owner = posix_getpwuid(fileowner($sfpath));
                 $group = posix_getgrgid(filegroup($sfpath));
@@ -86,5 +89,31 @@ class OMVRpcServiceResetPerms extends \OMV\Rpc\ServiceAbstract
 
     public function getListBg($params, $context) {
         return $this->callMethodBg("getSharedFolderInUseList", $params, $context);
+    }
+
+    private function getSharedFolderInUse(\DOMXPath $xpath, $uuid)
+    {
+        $locations = [];
+        $nodes = $xpath->query(sprintf('//*[text()="%s"]', $uuid));
+        foreach ($nodes as $node) {
+            $parent = $node->parentNode;
+            if (is_null($parent)) {
+                continue;
+            }
+            // Build the tag name path from the root down to the parent
+            $parts = [];
+            for ($n = $parent; $n instanceof \DOMElement; $n = $n->parentNode) {
+                array_unshift($parts, $n->nodeName);
+            }
+            $path = implode('/', $parts);
+            // Skip the shared folder's own configuration entry.
+            if (false !== strpos($path, 'shares/sharedfolder')) {
+                continue;
+            }
+            $locations[] = str_replace('/', '->', preg_replace('#^config/#', '', $path));
+        }
+        $locations = array_unique($locations);
+        sort($locations);
+        return $locations;
     }
 }

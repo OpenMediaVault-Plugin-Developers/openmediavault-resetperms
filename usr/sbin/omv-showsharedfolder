@@ -24,13 +24,17 @@ fi
 # Search for uuid in all elements
 elements=$(grep ${uuid} ${OMV_CONFIG_FILE} | awk -F'[<>]' '{print $2}' | uniq)
 
+# Dump every element path in the document once; each iteration below only
+# filters this cached list rather than re-parsing the whole config file.
+alllocations=$(xmlstarlet el -u ${OMV_CONFIG_FILE})
+
 show=""
 
 # Check all elements for uuid
 for element in $elements; do
 
   # Get list of all elements with element in location
-  elementlist=$(xmlstarlet el -u /etc/openmediavault/config.xml | grep ${element} | uniq)
+  elementlist=$(echo "${alllocations}" | grep ${element} | uniq)
 
   # check all locations for uuid
   for searchelement in $elementlist; do
